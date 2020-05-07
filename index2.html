@@ -1,0 +1,89 @@
+<!Doctype html>
+
+<html>
+<head>
+
+<title>
+Sample Javascript Page
+</title>
+</head>
+
+<body>
+
+<script type="text/javascript">
+
+//This is a single line comment
+/* This is a 
+multiple line comment
+*/
+var lolz="Your";
+var lmao="Gay";
+document.write("Hello World!");
+document.write(lolz+" mom " + lmao);
+
+//TESTING FUNCTIONS WITH PARAMETERS
+function testingparameters(abc)
+{
+alert(abc +" wants to know your location...");
+}
+function testing()
+{
+alert("Congratulations!!!! You clicked a button!");
+}
+function chunguswithoutparameters()
+{
+alert("Do you know the wae?");
+}
+testingparameters("Albert Einstein");
+
+
+//TESTING MULTIPLE PARAMETERS
+function multiplemagic(first, second)
+{
+document.write("<br />"+first + " flies like a " + second+"<br />");
+}
+
+multiplemagic("Time","arrow");
+multiplemagic("Fruit","banana");
+
+//TESTING THE RETURN STATEMENT
+function returnexample(a,b)
+{
+var c;
+c=a+b;
+return c;
+}
+document.write("<br />"+"The addition is " + returnexample(8,2)+ "<br />");
+
+//TESTING CALLING ONE FUNCTION FROM ANOTHER
+
+function first()
+{
+document.write("One" + "<br />");
+second();
+}
+function second()
+{
+document.write("Two"+ "<br />");
+first();
+}
+
+
+</script>
+<form>
+
+<input type="button" value="Click Me" onclick="testing()" />
+<input type="button" value="Get ready for supersonic speed" onclick="first()" />
+
+</form>
+
+<img src="wae.png" onclick="chunguswithoutparameters()" />
+
+
+
+
+
+
+
+</body>
+</html>

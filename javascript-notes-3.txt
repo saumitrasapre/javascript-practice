@@ -1,0 +1,155 @@
+Notes-3:
+
+---EVENT HANDLERS---
+We now come to that part of Javascript which will help us in making our webpage more interactive.An event handler is basically a small block of Javascript code that is executed whenever
+the web browser detects that an event has occured.An event may be a simple mouse click or even hovering of the mouse over a button or some text.Recall that we had learnt the onclick
+attribute in order to call the functions. The onclick attribute is itself a type of event handler. It gives a response whenever that particular xhtml element is clicked.
+The onclick attribute can either specify which function to execute or can directly specify the javascript code within itself.If the code to be executed is too long , then it is a better
+approach to include it inside a function. But if the code is a one line code, we can directly specify it inside the onclick attribute.
+
+CAUTION: 
+Whenever we are specifying the code directly inside the attribute and particularly if the code contains an ALERT BOX, then the text inside the alert box should be enclosed within SINGLE
+QUOTES ONLY. If we try to enclose it within double quotes, the browser shall treat it as the value of an attribute and shall get confused.
+It is also compulsory to end the javascript code with a SEMICOLON whenever it is specified directly inside an xhtml tag.
+However whenever we are specifying the alert box from within a function, then there is no need to include the text within the alert box in singlw quotes. We can freely use double 
+quotes.
+
+EXAMPLE:
+<input type="button" value="Touch me!" onclick="alert('AAAAAH !');" />
+
+THE onMouseOver EVENT HANDLER:
+The onMouseOver event handler specifies another type of event. This event getrs triggered whenever the user hovers his mouse over the xhtml element. It is pretty similar to the onclick
+event handler but here, instead of clicking, the user just has to hover his mouse over the element. All the rules of the onClick attribute also apply to the onMouseOver attribute.
+
+THE onMouseOut EVENT HANDLER:
+The onMouseOut event handler specifies another type of event. This event getrs triggered whenever the user backs away his mouse cursor away from the xhtml element.
+ It is pretty similar to the onMouseOver event handler but here, instead of clicking, the user just has to back his mouse away from the element.
+All the rules of the onClick and onMouseOver attribute also apply to the onMouseOut attribute.
+
+-EVENT HANDLERS OF THE BODY TAG-
+Like many xhtml elements can have event handlers, the body tag can also have event handlers. The body tag cannot have the commonly used event handlers like onclick or onMouseOver,etc
+It on the other hand has special event handlers like "onLoad" and onUnload.
+
+THE onLoad EVENT HANDLER:
+The onLoad event handler specifies another type of event. This event getrs triggered whenever the webpage gets fully loaded. It is automatically executed whenever the webpage loads.
+
+THE onUnload EVENT HANDLER:
+The onUnload event handler specifies another type of event. This event getrs triggered whenever the user exits from the webpage. It is automatically executed whenever the user 
+clicks on another link, or closes the web browser altogether.
+
+
+---OBJECTS---
+True to its name, javascript does incorporate some elements of the object oriented programming paradigm. An essential detail to be understood, is that ALL THE VARIABLES THAT WE HAVE
+CREATED TILL NOW ARE ACTUALLY OBJECTS. They have certain inbuilt properties which are defined by default by Javascript.
+For example, if we assign a string to a variable banana:
+	var banana="Hey now brown cow"
+This variable is actually an object and has an inbuilt method attached with it called: length.
+Thus if we try to print banana.length, it shall display the number of characters which are present in the string "Hey now brown cow" which is 14.
+
+We also have certain inbuilt objects in javascript that we unknowingly have been using until now.For example: We have the "document" which is an object which has an inbuilt method
+called "write". Thus whenever we write: "document.write" we are actually calling the "write" method of the "document" object.
+
+---CREATING YOUR OWN OBJECTS---
+Creating an object in javascript is slightly different that that of C++ or Java. Here, there is no concept of a class OF WHOSE object will be created. In order to create an object, we
+first need to define a CONSTRUCTOR FUNCTION, inside the script tags, in the HEAD of the webpage.
+It may sound weird at first to create a constructor without having a corresponding class, but Javascript doesnt have the concept of class.
+The constructor function SHOULD HAVE PARAMETERS and the names of these parameters should be the SAME as that of the instance variables of the object that we're going to create.
+In order to differentiate between the local variables of the constructor function, and the instance variables of the object, we use the THIS keyword.
+The syntax for creating a constructor function is as follows:
+
+<head>
+<script type="text/javascript">
+
+function student(name,age)
+{
+	this.name=name;
+	this.age=age;
+}
+</script>
+</head>
+
+After creating the constructor variable, we indeed need to create an INSTANCE of the object. Recall that the variables that we've been creating until now are actually objects.
+Thus,an instance can be created by simply using the "var" keyword. This is very similar to the concept of creating "reference variables" in Java.
+After creating such a reference variable, we need to reserve memory for it and also initialise its instance variables. This can be done using the "new" keyword.
+It must be remembered that instances of the objects are usually created in the script tags INSIDE THE HEAD TAGS.
+However, we manipulate the contents of the objects or print them out inside the BODY tags, as that's where we want our content to be.
+The syntax for doing so is as follows:
+<head>
+//Assuming constructor function has been created above this
+<script type="text/javascript">
+
+var s1=new student("Adam",20);
+var s2=new student("Bernie",21);
+
+</script>
+</head>
+
+After doing so, we can -by all means- play around with the object, changing values, printing the instance variables,etc in the BODY tag.
+
+---CREATING OBJECTS USING OBJECT INITIALISERS (JSON)---
+This is yet another way of creating instances of objects. It essentially serves as a shorthand for creating objects. It is recommended that if we want to create only a handful of
+objects and we want to save time by reducing the typing work, we can easily use the "object initialiser" method. But if we want to create a large number of objects, then it is better
+to do so using constructor functions.
+In order to create objects using object initialisers, we DO NOT NEED THE NEW KEYWORD AS WELL AS THE VAR KEYWORD.
+We simply write the object name, and set its instance variables equal to their correseponding values with the help of colons (:).All of the different instance variables are
+separated by commas.
+
+THIS NOTATION IS CALLED JAVASCRIPT OBJECT NOTATION (JSON)
+The syntax to do so is as follows:
+SYNTAX:
+
+<head>
+<script type="text/javascript">
+
+s1={name:"Albert Einstein", age:20};
+s2={name:"Isaac Newton", age:21};
+
+</script>
+</head>
+
+---ADDING METHODS TO OBJECTS---
+Okay, so this is a little confusing,and might raise a lot of questions.
+In order to add methods to our objects, we first create the constructor function as it is as we did earlier. Now, we create another function which shall serve as a method in our
+object.Whenever we say that a function is a METHOD, we simply mean that that particular function can access all the instance variables of the object.
+Thus, in order for our new function to serve as a method, we must utilise some or all the instance variables of our object.This can be done with the help of the "this" keyword.
+EXAMPLE:
+
+function student(name,age)
+{
+	this.name=name;
+	this.age=age;
+}
+
+function birthyear()
+{
+	var byear=2019-this.age;
+	return byear;
+}
+
+Now that we have created our method function, we need to tell Javascript that this function is ACTUALLY a METHOD for the object WHOSE constructor function we have defined first.
+In order to do so, we add another property to the constructor function. This property is NOT a variable. Such a property is called a DELEGATE. A delegate can be visualised as 
+a FUNCTION VARIABLE. Thus it TREATS A FUNCTION LIKE A VARIABLE. This enables us to PASS FUNCTIONS AS PARAMETERS TO OTHER FUNCTIONS. Care must be taken that whenever we are associating
+a function to a delegate, we do so WITHOUT THE PARANTHESES--().
+Thus, our modified constructor function will look like:
+
+function student(name,age)
+{
+	this.name=name;
+	this.age=age;
+	this.year=birthyear;
+}
+
+function birthyear()
+{
+	var byear=2019-this.age;
+	return byear;
+}
+
+var s1=new student("Adam",20);
+
+document.write(s1.year());
+
+This shall print out 1999 on the screen. If you're confused, read the above bit again.
+
+
+

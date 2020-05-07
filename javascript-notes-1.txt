@@ -1,0 +1,231 @@
+Notes-1:
+
+Similar to how we added the <style> tags in css, we now have the <script> ... </script> tags in javascript. The only catch is that in css, we wrote these tags
+inside the <head> ... </head> tags. But here since we actually want to add elements to the body of the webpage, we must include the <script> ... </script> tags 
+INSIDE THE BODY TAGS OF THE XHTML DOCUMENT.
+
+This is obviously logical as we now dont have to alter any properties of any element in the webpage, but have to actually add elements to the webpage.
+Similar to css, these tags take a compulsory attribute called "type". And similar to css, while we wrote the value of this atribute as "text/css", the
+value here is "text/javascript". This is because, there are about 50 different scripting languages in use currently and we need to specify the language that
+we are currently using, using the "type" attribute.
+FINAL TAG:
+<script type="text/javascript">
+.
+.
+.
+</script>
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+COMMENTS AND STATEMENTS:
+In xhtml we had comments in the following syntax:
+<!--comment_goes_here-->
+In javascript (as well as in css) the comments are identical to that of C or C++.
+That is:
+//Single_line_comment_goes_here
+
+/*
+Multiple_line_comment_goes_here
+and_here_too
+*/
+
+Also similar to C or C++ (or css for that matter), every statement ends with a semicolon.
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+PRINTING STUFF OUT ON THE SCREEN:
+In order to print out anything on the screen, we use the following syntax:
+document.write("your_text_goes_here");
+It follows similar rules to the printf statement in C.
+The normal \t works but \n doesnt work.
+
+NOTE:
+While printing out stuff on the screen, if we have quotation marks INSIDE our text, then a problem arises. Javascript treats the first quotation mark as
+the end of your string and then gets confused about the remaining text.So in the end it will display nothing.
+EXAMPLE:
+document.write("Knuckles said -"An apple a day keeps the doctor away"");
+Here only "Knuckles said -" is treated as the string. An since the remaining sentence doesn't make sense, it gets confused and then executes nothing.
+
+
+This can be solved using the concept of "escape character" which is a single backward slash ("\"). This just signifies that the symbol that is just after it must
+be treated as regular text and not as an identifier.
+So in order to display out text correctly, out statement should look like:
+document.write("Knuckles said -\"An apple a day keeps the doctor away\"");
+This will treat the quotation marks after "-" and "away" as normal text.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+VARIABLES:
+Now comes the interesting part. We know that in C or C++ while declaring variables, we always specified the type of the variable, ie int or float or char
+or string or bool,etc.
+A variable can also be a null character...
+var xyz=null;
+The awesome part about javascript is that we need not specify the datatype of variable while declaring it. Similar to python!
+We just use the following syntax:
+var variable_name=value;
+OR
+var variable_name;
+variable_name=value;
+
+NOTE: The variable name can only start with A LETTER OR AN UNDERSCORE ("_"). Moreover, a variable can anly contain a combination of LETTERS, NUMBERS AND
+UNDERSCORES and NO OTHER SYMBOLS.
+
+The variable can be of any type whatsoever(int,float,char,string,boolean,etc...)! The browser identifies it automatically.
+HERE VAR IS THE KEYWORD AND IS USED TO SPECIFY THAT WE ARE DECLARING A VARIABLE.
+EXAMPLE:
+var tuna=20;			|We set the variable "tuna" to 20 which is of type int.
+document.write(tuna);   |This will print out "20" on the screen
+tuna="big chungus";		|We now redefined the value of "tuna" to "big chungus" which is of type string.
+document.write(tuna);	|This will print "big chungus" on the screen(of course without the quotation marks).
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+APPENDING VARIABLES WHILE PRINTING:
+While printing stuff out on the screen, we can simple append the different variables(They need not be of the same type) using the addition operator.
+The collection of variables is then printed out on the screen as ONE SINGLE STRING.
+EXAMPLE:
+
+var x;
+x="big chungus";
+var y,z;
+y=23;
+z=24;
+document.write(x+y+z);
+
+This will print out : big chungus2324
+
+EXAMPLE 2:
+
+var a,b;
+a="Your";
+b="Gay";
+
+document.write(a+" mom "+b);
+
+This will print out: Your mom Gay
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+FUNCTIONS:
+This is the most important aspect of javascript. A function, similar to functions in C/C++ can be declared ,defined and called whenever we want it. We have
+already seen in variables, that javascript does not take in datatypes, so it is natural to assume that while declaring functions in javascript, we need not
+specify the return type. ALTHOUGH THE FUNCTION MAY RETURN VALUES, WE NEED NOT SPECIFY THE TYPE OF VALUE THAT THE FUNCTIONS WILL RETURN.
+
+In order to declare functions, we need the keyword "function". Then we specify the name of the function, and then we specify the parameters.
+After the curly braces, we actually define the body of the function.
+SYNTAX:
+function function_name (parameters)
+{
+//body goes here
+}
+EXAMPLE:
+function lemontree()
+{
+alert("Tangy limones~");
+}
+---THE JAVASCRIPT ALERTS---
+We, while visiting websites, have seen many of them issuing javascript alerts, like xyz.co wants to know your location, or abc.com wants to open utorrent,etc.
+These javascript alerts can be issued with the help of the "alert" keyword. The syntax is simple...
+SYNTAX:
+alert("alert text goes here");
+
+Functions can be called using simply the function name and the parameters, similar to C/C++.
+--THE ONCLICK ATTRIBUTE--
+There is another attribute to xhtml tags that we havent talked about and it is the "onclick" attribute. The onclick attribute is used to specify when to execute
+a particular action. The action that the attribute does is specified in its value.By doing so, we can make ordinary text clickable on our screen (somewhat:p).
+This is because, on clicking the text, some javascript action will be performed.
+EXAMPLE:
+<p onclick="lemontree()"> This will execute lemontree</p>
+Upon clicking the above paragraph, the function lemontree will be executed which will then issue a pop up javascript alert called "Tangy limones~".
+
+---FUNCTIONS WITH PARAMETRS---
+Similar to ordinary functions in C/C++, we can also pass parameters into javascript functions...
+REMEMBER, JAVASCRIPT DOES NOT HAVE DATATYPES, SO IN THE PARAMETER BRACKETS, WE SIMPLY TYPE IN THE NAME OF THE VARIABLES WITHOUT THEIR DATATYPES.
+So, the general syntax will be:
+SYNTAX:
+function myfunc (x)
+{
+alert(x + "is a very good person");
+}
+myfunc("Albert");//Function call
+ In the above example, we have a function which has a variable x as a parameter OBVIOUSLY WITHOUT A DATATYPE SPECIFIED. The function upon execution issues
+ a javascript alert to give a pop up text called x "is a very good person" Where x is a placeholder for the value which is passed during the function call.
+ When we pass the value "Albert", The value of x gets replaced by Albert. So, the final text printed is: "Albert is a very good person".
+ 
+ 
+---MULTIPLE PARAMETERS---
+Similar to C/C++, we can also pass multiple parameters to functions. These multiple parameters are simply separated by commas AND WE DONT NEED TO SPECIFY THEIR
+DATATYPES. Whenever we call such a function, we must specify the values of both the parameters. Whenever we pass such parameters, the variables get replaced by
+their passed values and the same are used inside the function.
+
+EXAMPLE:
+function bamboozle (first, second)
+{
+document.write(one + "flies like a" + two);
+}
+bamboozle("time","arrow");//function call
+bamboozle("fruit","banana");//function call
+
+In the above example, the variable x gets replaced by "time" first and then later on by "fruit" and the variable second gets replaced by "arrow" and later
+on by "banana".
+So, the output will be:
+time flies like a arrow
+fruit flies like a banana
+One speciality of  javascript is that we can also use the xhtml tag for a line break <br /> inside the document.write and still javascript will recogise it
+and bump the text onto the next line.
+EXAMPLE:
+function bamboozle (first, second)
+{
+document.write(one + "flies like a" + two + "<br />");
+}
+
+
+---THE RETURN STATEMENT---
+You might have guessed from the title of this subsection itself that the concept is exactly similar  to C/C++ or Java for that matter. 	Basically, Javascript
+allows you ti return values from functions using the "return" keyword. And like we have discussed previously, the return values NEED NOT HAVE THEIR DATATYPES
+SPECIFIED. Whenever you call a functio which returns something, the caller of the function substitultes that value of the function with the value that
+it returns.
+EXAMPLE:
+function addition(a,b)
+{
+var c;
+c=a+b;
+return c;
+}
+
+document.write("The addition is " + add(8,2));
+
+In the above example, we have written a simple function which accepts two parameters viz a and b. It then introduces another variable called "c" and 
+stores the addition of "a" and "b" in "c". The function then finally returns the value "c" as we can clearly observe in the return statement.
+After the function declaration, we have called the function using a "document.write" operation. Whenver Javascript observes such a function call,it 
+immediately substitutes the "function call" with the "value returned by the function". In this case, it is the addition of "8" and "2" which are passed as
+parameters to the function. 
+The output of the function will be:
+"The addiion is 10"
+
+
+---CALLING ONE FUNCTION FROM ANOTHER FUNCTION---
+Oh lawd yes we can! We by all means can call one function from another function. We can also call two different functions from another third function.
+All this playing around with functions is possible and is actually recommended in Javascript. If you want to get too crazy, you can call a second function
+from a first function and then again call the first function from the second function. This will create a recursive chain with no exit conditon. Thus, the 
+two functions will keep on repeating themselves unless and until the allocated stack memory for the web browser becomes full.
+EXAMPLE:
+function first()
+{
+document.write(" The quick brown fox ");
+}
+function second()
+{
+document.write(" Jumped over the lazy dog ");
+}
+function starter()
+{
+first();
+second();
+}
+
+starter();
+
+The above code has called the function starter(). The starter() function in turn has called two other functions called first() and second() in that particular 
+sequence. The output of the above code snippet shall be:
+"The quick brown fox Jumper over the lazy dog "
+
+
+
+
+
+
+ 
+
+

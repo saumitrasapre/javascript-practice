@@ -1,0 +1,119 @@
+<!Doctype html >
+<html>
+<head>
+<title>
+Sample Javascript Page 2
+</title>
+
+</head>
+
+<body>
+<script type="text/javascript">
+
+//GLOBAL VARIABLE
+
+var apple="This is a red apple";
+function spitredapple()
+{
+document.write(apple+"<br />");
+}
+spitredapple();
+document.write(apple+"<br />");
+
+function spitgreenapple()
+{
+//LOCAL VARIABLE
+var greenapple="This is a green apple";
+document.write(greenapple+"<br />")
+}
+
+spitgreenapple();
+//document.write(greenapple+"<br />")--NOT ALLOWED
+
+//MATH OPERATORS
+var add=2+3;
+var sub=3-2;
+var mul=3*2;
+var div=15/3;
+var mod=5%3; //Answer is 2(remainder)
+var increm=5;
+increm++;
+var decr=6;
+decr--;
+
+
+document.write("<br />"+add + "<br />"+ sub+ "<br />"+ mul + "<br />"+ div + "<br />"+ mod + "<br />"+ increm + "<br />"+ decr + "<br />"  );
+
+//IF-ELSE STATEMENT
+var banana=10;
+var orange=20;
+if(banana==orange)
+{
+document.write("A banana is equal to an orange");
+}
+else
+{
+document.write("I am a monkey and I am here to baptise you");
+}
+
+//SWITCH STATEMENT
+var cheese="cheddar"
+document.write("<br/>");
+switch(cheese)
+{
+	case("brie"):
+	document.write("This is brie cheese");
+	break;
+	
+	case("cheddar"):
+	document.write("This is cheddar cheese");
+	break;
+	
+	case("mozarrella"):
+	document.write("This is mozarrella cheese");
+	break;
+	
+	case("blue"):
+	document.write("This is blue cheese");
+	break;
+	
+	default:
+	document.write("You cheeky wanker, can't decide the cheese innit?");
+
+}
+
+//FOR LOOP
+document.write("<br/>");
+for(i=0;i<9;i++)
+{
+	document.write("The number is " +i+"<br />");
+}
+
+//WHILE LOOP
+document.write("<br/>");
+var x=0;
+while(x<10)
+{
+	document.write("The number is "+x+"<br />");
+	x++;
+}
+
+//DO-WHILE LOOP
+document.write("<br/>");
+var x=0;
+do
+{
+	document.write("The number is "+x+"<br />");
+	x++;
+}while(x<10);
+
+</script>
+
+
+
+
+
+
+</body>
+
+</html>

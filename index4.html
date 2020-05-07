@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>
+Sample Javascript Page 3
+</title>
+
+<script type="text/javascript">
+//CREATING NEW OBJECTS
+function student(name,age)
+{
+	this.name=name;
+	this.age=age;
+	this.year=birthyear;
+	
+}
+var s1=new student("Albert Einstein",20);
+var s2=new student("Isaac Newton",21);
+
+//CREATING OBJECTS USING OBJECT INITIALISERS
+
+f1={name:"apple",color:"red"};
+f2={name:"banana",color:"yellow"};
+
+//ADDING METHODS TO OBJECTS
+function birthyear()
+{
+	var byear=2019-this.age;
+	return byear;
+
+}
+</script>
+</head>
+<body onUnload="alert('Leaving so soon?');">
+<script type="text/javascript">
+
+
+
+document.write(s1.name+"  "+s1.age+"  "+s1.year()+"  "+"<br />");
+document.write(s2.name+"  "+s2.age+"  "+s2.year()+"  "+"<br />");
+
+document.write(f1.name+"  "+f1.color+"  "+"<br />");
+document.write(f2.name+"  "+f2.color+"  "+"<br />");
+
+
+
+</script>
+
+<form>
+
+<input type="button" value="Touch me!" onclick="alert('AAAAAH !');" />
+
+</form>
+
+<br />
+<a href="http://www.google.com" onmouseover="alert('How I wonder what you are?');"> Twinkle Twinkle Little Star </a>
+<br />
+<a href="http://www.google.com" onmouseout="alert('And a happy new year!');"> We wish you a merry  christmas </a>
+
+
+
+</body>
+
+
+
+
+</html>

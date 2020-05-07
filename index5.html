@@ -1,0 +1,130 @@
+<!Doctype html >
+
+<html>
+<head>
+<title>
+Sample Javascript Page 4
+</title>
+
+</head>
+<body>
+<script type="text/javascript">
+
+//TESTING ARRAYS
+var student=new Array ("Albert","Bernie","Cecil","Daniel","Elijah");
+for(i=0;i<5;i++)
+{
+	document.write(student[i]+"<br />");
+
+}
+document.write("<br />");
+var student2=new Array(5);
+student2[0]="Albert";
+student2[1]="Bernie";
+student2[2]="Cecil";
+student2[3]="Daniel";
+student2[4]="Elijah";
+
+for(i=0;i<5;i++)
+{
+	document.write(student2[i]+"<br />");
+
+}
+
+document.write("<br />");
+var student3=new Array();
+student3[0]="Albert";
+student3[1]="Bernie";
+student3[2]="Cecil";
+student3[3]="Daniel";
+student3[4]="Elijah";
+
+for(i=0;i<5;i++)
+{
+	document.write(student3[i]+"<br />");
+
+}
+document.write("<br />");
+document.write(student.length);
+
+document.write("<br />");
+
+var fruits=new Array("Orange","Apple","Banana","Strawberry");
+var vegetables=new Array("Lettuce","Spinach","Kale");
+
+var fruitsveggies=fruits.concat(vegetables);
+
+for(i=0;i<6;i++)
+{
+	document.write(fruitsveggies[i]+"<br />");
+
+}
+
+var fruitstring=fruits.join("-");
+document.write("<br />"+fruitstring);
+
+fruits.pop();
+var fruitstring=fruits.join("-");
+document.write("<br />"+fruitstring);
+
+fruits.reverse();
+var fruitstring=fruits.join("-");
+document.write("<br />"+fruitstring);
+
+fruits.push("Avocado");
+var fruitstring=fruits.join("-");
+document.write("<br />"+fruitstring);
+
+fruits.sort();
+var fruitstring=fruits.join("-");
+document.write("<br />"+fruitstring);
+
+var input=prompt("Enter an email id","someone@example.com");
+document.write("<br />"+input);
+
+var fooditems=new Array(3);
+
+for(i=0;i<3;i++)
+{
+	fooditems[i]=prompt("Enter a food item","");
+}
+var foodstring=fooditems.join("-")
+document.write("<br />");
+document.write("<br />"+foodstring);
+
+document.write("<br />");
+document.write("<br />");
+for(i=0;i<fruits.length;i++)
+	{
+		document.write(fruits[i]+"<br />");
+	}
+	
+	
+var person=new Array();
+
+person["name"]="John"
+person["favcolor"]="Blue"
+person["favfood"]="Pizza"
+
+document.write("<br />");
+document.write(person["name"]+"<br />"+person["favcolor"]+"<br />"+person["favfood"]+"<br />");
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,271 @@
+Notes-2:
+
+---GLOBAL AND LOCAL VARIABLES---
+There are essentially two classes of variables namely:
+1>GLOBAL VARIABLES
+2>LOCAL VARIABLES
+Global variables are those which are declared outside any function. Thus, ANY VARIABLE WHICH IS NOT DECLARED INSIDE A PARTICULAR FUNCTION IS CALLED A GLOBAL
+VARIABLE.
+Thus, conversely any variable which is declared inside any particular function is called a LOCAL VARIABLE.
+There are two important RULES to be understood with global and local variables:
+1> Global variables once declared, can be used anywhere inside the Javascript program. Thus, a variable declared outside a function(ie a global variable) can 
+	be used both--inside any particular function as well as outside any function. The variable is hence GLOBAL to the program.
+	
+
+2> Local variables, however, can ONLY BE USED INSIDE THE FUNCTION IN WHICH THEY ARE DECLARED. Thus, a local variable, once declared inside any function, can only
+	be used inside that particular fucntion. It CANNOT be used in any other function, nor can it be used independently outside any function.The variable has thus
+	become LOCAL to the function in which it is defined.
+	
+
+---MATH OPERATORS---
+As with any programming or scripting language, the core of programming starts with math. And as with most of the programming languages, Javascript also supports
+math operators. A handy list of the most commmonly used math operators is as follows:
+
+1> Add: (+) Adds two (or more) numbers.
+2> Subtract: (-) Subtracts two (or more) numbers.
+3> Multiply: (*) Multiplies two (or more) numbers.
+4> Divide: (/) Divides two  numbers (first divided by the second).
+5> Modulus:(%) Divides two numbers (first divided by the second) and returns the remainder of the division.
+6> Increment: (++) It is a unary operator which increments a number by 1.
+7> Decrement: (--) It is a unary operator which increments a number by 1.
+
+Along with these there are also certain variations of the assignment operator. These essentially act as short-cuts for certain operations which otherwise would
+take a long line of text to type.
+
+8>Add-and-assign:(+=) It adds a variable to a value and stores the result in the variable.
+  eg. num+=2 (is the shortcut for num=num+2)
+  
+9>Subtract-and-assign:(-=) It subtracts a variable from a value and stores the result in the variable.
+  eg. num-=2 (is the shortcut for num=num-2)
+  
+10>Multiply-and-assign:(*=) It multiplies a variable to a value and stores the result in the variable.
+  eg. num*=2 (is the shortcut for num=num*2)
+  
+11>Divide-and-assign:(/=) It divides a variable with a value and stores the result (ie the quotient) in the variable.
+  eg. num/=2 (is the shortcut for num=num/2)
+  
+12>Modulus-and-assign:(%=) It divides a variable with a value and stores the remainder of the division in the variable.
+  eg. num%=2 (is the shortcut for num=num+%2)
+  
+---IF STATEMENTS AND IF-ELSE STATEMENTS---
+Similar to other programming languages Javascript also supports conditional statements like the "if" and "if-else" statements. The if statement checks for the 
+truthfulness of the conditional equation provides. If the condition is indeed true. The code in the body of the if statement shall be printed. Otherwise it will
+be skipped.
+The important point to take away is that the conditon presented to the if statement should always return a "boolean" value ie either a "true" or a "false" value.
+The syntax for the if statement is exactly similar  to what we have been using in C/C++ or even JAVA.
+
+SYNTAX:
+if(condition)
+{
+//body
+}
+
+EXAMPLE:
+var apples=54;
+var oranges=26;
+if(apples==oranges)
+{
+document.write("It Works!");
+}
+
+On running the above code snipppet, the browser will show nothing as the condition inside the if statement is "false" as 54 is not equal to 26.
+On the other hand, if we replace "==" with "!=" then the browser shall show the statement "It works!". This is because, it is indeed true that the two
+variables are not equal to each other.
+
+We can also extend the funtionality of the "if" statement by giving it an alternative "else" block. We have already gone over it multiple times while studying
+different programming languages. An else block essentially specifies the code that the program must run if the condition in the "if" statement fails or is false.
+Thus if the conditional statement specified inside the "if" block fails, instead of terminating, the browser executes the code present inside the "else" block.
+SYNTAX:
+if(condition)
+{
+//body
+}
+else
+{
+//alternative code
+}
+
+---NESTING IF-ELSE STATEMENTS---
+It is possible to write an if-else block INSIDE another if statement. Such a process is called 'NESTING'. Let us supppose that a particular if block is nested
+INSIDE another if block, then the code inside the INNER if-block will only run if the conditions of BOTH the if blocks are satisfied.
+Thus, nesting if statements provides us with a mechanism with which we can filter the conditions to an extent and then execute the final code if all the
+conditions are indeed satisfied.
+SYNTAX:
+
+if(condition1)
+{
+	if(condition2)
+	{
+		if(condition3)
+		{
+			//code
+			
+		}
+		else
+		{
+		//alternate code3
+		}
+	}
+	else
+	{
+	//alternate code2
+	}
+}
+else
+{
+//alternate code1
+}
+
+---COMPLEX CONDITIONS---
+These are probably the very basics of writing  any conditional statement and there is a good chance that you probably know this already. In Javascript, like many
+other programming lannguages, it is possible to write a COMPLEX IF condition.
+This simply means that we can test for more than one condition within a single "if" statement.This can be done with the help of logical operators like AND or OR.
+1>The AND operator:
+	We can test for multiple conditions using this operator. The result of the overall IF condition will be true if ALL of the conditions separated by the AND
+	operator ARE TRUE.If only one or some conditons are true, then the overall result will be false, and hence the IF condition will not be executed.
+	The AND operator is represented by two ampersand signs (ie &&).
+	SYNTAX:
+	if((condition1) && (condition2))
+	{
+		//body
+	}
+	else
+	{
+	//alternative code
+	}
+	
+2> The OR operator:
+	We again can test for multiple conditions using this operator.The result of the overall IF condition will bee true if AT LEAST ONE OR MORE conditions
+	separated by the OR operator are true.If none of the conditons are true, then the overall result will be false, and hence the IF condition will not be
+	executed.
+	The OPR operator is represented by two pipe symbols (ie ||).
+	SYNTAX:
+	if((condition1) || (condition2))
+	{
+		//body
+	}
+	else
+	{
+	//alternative code
+	}
+	
+
+---SWITCH STATEMENTS---
+The switch statement is yet another way that the programmer can perform a conditional branching operation wherein multiple paths are available for the program and the programmer 
+has to choose one of them based upon the conditional statement.A switch statement becomes particularly useful when the programmer has to present the user with a very large number
+of choices.Of course, we can perform the same operation using multiple if statements, but using a SWITCH give a cleaner appearance and improves the readability of the code.
+
+It is also true that execution of the SWITCH statement is faster and more efficient that using an IF-ELSE ladder. This is because internally Javascript prepares a jump-table
+for all the choices that the code provides. However, the IF-ELSE ladder gives more flexibility to the programmer, in the sense that the IF-ELSE statements have the ability to
+evaluate the truth value of a conditional equation. On the other hand the SWITCH can only test for equality of the conditional expression.
+
+The syntax and use of switch is very similar to what we have studied in any programming language so-far.Here every case is followed by a "break" keyword,and we also have the option
+to add a default case. The default case-although not compulsory-is executed when none of the cases mentioned above it matches the switching variable.
+The switching variable--much like Java-- can be an integer, a float, a character, and most importantly a string!
+SYNTAX:
+
+switch(variable)
+{
+	case(value1):
+		//code
+		break;
+	
+	case(value2):
+	//code
+	break;
+	
+	case(value3):
+	//code
+	break;
+	
+	case(value4):
+	//code
+	break;
+	
+	case(value5):
+	//code
+	break;
+	
+	default:
+	//code
+	break;
+	
+}
+
+---FOR LOOP---
+The for loop has the same usage as with other programming languages. Its is used to repeat a block of code again and again unless and until a terminating condition  is reached.
+The for loop takes in 3 parameters namely-- The initialisation, The terminating condition, The increment/decrement.
+The syntax for the for loop is very very similar to that of C/C++ or even Java for that matter. In these programming languages, we always specified the datatype of the increment
+variable that we used. But because Javascript does not deal with datatypes, THERE IS ABSOLUTELY NO NEED TO SPECIFY THE DATATYPE. We can just simply write the name of the variable 
+in the initialisation condition of the for loop and Javascript will automatically come to know that it is an increment variable, as it always expects a variable at that particular place.
+SYNTAX:
+
+for(initialisation,terminating_condition,increment/decrement)
+{
+//block of code to be repeated
+}
+
+EXAMPLE:
+
+for(i=0;i<10;i++)
+{
+	document.write("The number is "+i+"<br />");
+}
+The above example will print "The number is 0", "The number is 1",...,"The number is 9". 
+Whenever the for loop is executed for the first time, it initialises the increment variable(ie "i") to 0. It then verifies whether the terminating condition is met or not.
+After that it executes the block of code. After executing the block of code it changes the value of the increment variable depending on the increment/decrement condition.
+It again checks for the terminating condition, again executes  the block of code, again checks the increment/decrement condition, and the cycle repeats.
+The initialisation condition is execute ONLY ONCE.
+
+
+---WHILE LOOP---
+The while loop does the EXACT SAME THING as a for loop. A while loop is just a different way of representing the looping operation. A while loop simply specifies a condition and unless
+and until the condition is false, the code inside the block will keep on executing . The moment the condition becomes true, the loop teminates. For this reason the condition is also
+called the "terminating condition". Here, however we do need to create a counter variable before we can use it in the while loop. As with the for loop, THERE IS NO NEED TO SPECIFY THE
+DATATYPE OF THE COUNTER VARIABLE.
+The syntax of the while loop is exatly the same as that of C/C++ or even Java for that matter.
+SYNTAX:
+
+while(terminating_condition)
+{
+	//block of code to be repeated
+}
+
+EXAMPLE:
+var i=0;
+while(i<10)
+{
+	document.write("The number is "+i+ "<br />");
+	i++; //VERY IMPORTANT
+}
+The above example will print "The number is 0", "The number is 1",...,"The number is 9".
+Before executing the block of code inside the while loop, the program first checks whether the terminating condition is satisfied or not even before executing the while block.
+If the condition is false, then it goes on to execute the block of code. Carefully observe that we have written the increment/decrement condition INSIDE THE BLOCK OF CODE and not 
+in thew beginning of the while statement unlike that of the for loop. The moment the while condition becomes true, the loop terminates the execution.
+
+
+---DO-WHILE LOOP---
+The do while loop is a slight variation of the while loop. In the while loop, the terminating condition is checked every time before the block of code is executed EVEN BEFORE THE
+FIRST ITERATION. Thus, if the terminating condition becomes true during the first iteration itself, the while loop will never be executed.
+The do-while loop on the other hand allows the while loop to execute AT LEAST ONCE. Thus, during the first iteration, no condition checking is performed, and the block of code
+in the while loop is executed without any restriction. It is only after the first iteration, that the termiating condition is checked. Thus, even in the worst case scenario, it is
+ensured that the block of code is executed at least once.
+This is  especially useful in menu driven programs where we want to display the list of choices to the user at least once even when the user wants to terminate the program.
+The syntax of the do-while loop is exatly the same as that of C/C++ or even Java for that matter.
+SYNTAX:
+
+do
+{
+	//block of code to be repeated
+}while(terminating_condition);
+
+EXAMPLE:
+var i=0;
+do
+{
+	document.write("The number is "+i+ "<br />");
+	i++; //VERY IMPORTANT
+}while(i<10);
+
+The above example will print "The number is 0", "The number is 1",...,"The number is 9".
+Care must be taken to observe that there is a semicolon present after the "while" statement in the above syntax.

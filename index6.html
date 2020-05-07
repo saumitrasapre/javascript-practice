@@ -1,0 +1,75 @@
+<!Doctype html >
+<html>
+<head>
+<title>
+Sample Javascript Page 5
+</title>
+<script type="text/javascript">
+function validation()
+ {
+	if(document.MyForm.boxie.checked)
+		{
+			alert("The checkbox is checked");
+		}
+	else
+		{
+			alert("Check the checkbox goddamnit!");
+		}
+}
+</script>
+</head>
+<body>
+
+
+<form name="MyForm">
+Username: <input type="text" name="Uname" />
+Password: <input type="password" name="Pass" />
+<input type="submit" value="Submit!" />
+<br />
+<br />
+<input type="checkbox" name="boxie" />
+<input type="button" value="click here" onclick="validation()" />
+</form>
+
+<script type="text/javascript">
+
+document.write("The value of PI is "+Math.PI);
+document.write("<br />");
+document.write("The value of Euler's constant is "+Math.E);
+document.write("<br />");
+document.write("<br />");
+var num=prompt("Enter a number","");
+	var ans=Math.sqrt(num);
+	alert("The square-root of "+num+" is "+ans);
+	/*
+	function time()
+{
+	var dtevar=new Date();
+	var hrs=dtevar.getHours();
+	var mins=dtevar.getMinutes();
+	var secs=dtevar.getSeconds();
+	document.write(hrs+":"+mins+":"+secs+":"+"<br />");
+	
+}
+setInterval("time()",1000);
+*/
+
+//ACCESSING FORMS
+
+
+var len=document.forms[0].length;
+document.write(len);
+
+var x=document.forms[0].elements[0].name;
+var y=document.MyForm.Pass.name;
+document.write("<br />"+x+"<br />");
+document.write("<br />"+y+"<br />");
+
+
+
+
+</script>
+</body>
+
+
+</html>

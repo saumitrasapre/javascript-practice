@@ -1,0 +1,345 @@
+Notes-4:
+
+---ARRAYS---
+An array is basically a collection of elements of similar datatypes. Thus it acts like a list of similar entities.An interesting thing about arrays in Javascript is that the arrays
+need not always be storing variables of the same datatype. It is possible to create an array with 5 integers, a string, a character,etc. It is absoultely fine in Javascript.
+The process of creating an array in Javascript is slightly different than that of C/C++ or Java. In Javascript whenever we are creating an array we are unknowingly creating an array
+of objects.Here we have a separate keyword called "Array" which specifies that we are creating instances of the "Array" object which serve as the elements of the array.
+The syntax of creating an array in Javascript is as follows:
+SYNTAX:
+
+var array_name=new Array ("element_1","element_2","element_3","element_4","element_5",);
+
+EXAMPLE:
+var student=new Array ("Albert","Bernie","Cecil","Daniel","Elijah");
+
+Now accessing the elements of the array is very similar to C/C++ or Java. We can simply access an element by using its index inside square brackets.Remember, the indices of the array
+always start at '0' and not '1'.
+
+EXAMPLE:
+document.write(student[0]);
+The above line shall print the word "Albert" on the screen.
+
+
+---OTHER WAYS OF CREATING AN ARRAY---
+In the above example, we saw that we were creatng an array when we knew the different elements that were present inside the array. It is not always possible that we already know the
+elements of the array beforehand. In this case, we simply specify the size of the array beforehand and then add elements to the array later on.
+In order to do so, we simply specify the size of the array inside the Array constructor parantheses. The rest of the syntax remains the same.
+SYNTAX:
+var array_name=new Array (5);
+array_name[0]="element_1"
+array_name[1]="element_2"
+array_name[2]="element_3"
+array_name[3]="element_4"
+array_name[4]="element_5"
+
+EXAMPLE:
+var student=new Array(5);
+student[0]="Albert";
+student[1]="Bernie";
+student[2]="Cecil";
+student[3]="Daniel";
+student[4]="Elijah";
+
+Another variation of the above method is to create an array dynamicalyy. Here, we don't even specify the size of the array. We simply declare the array with empty parantheses for 
+the Array constructor. The size of the array will automatically grow as we keep on adding elements to the array. This is essentially called dynamic memory allocation.
+SYNTAX:
+SYNTAX:
+var array_name=new Array ();
+array_name[0]="element_1"
+array_name[1]="element_2"
+array_name[2]="element_3"
+array_name[3]="element_4"
+array_name[4]="element_5"
+
+EXAMPLE:
+var student=new Array();
+student[0]="Albert";
+student[1]="Bernie";
+student[2]="Cecil";
+student[3]="Daniel";
+student[4]="Elijah";
+
+--ARRAY METHODS AND PROPERTIES---
+As we have learnt earlier, an Array in javascript is not technically an array in true sense. It is actually an object. And as with any object, the Arrays also have methods and
+properties associated with them. Because the "Array" object is a built in object, it also has certain built-in properties and methods.
+1> The "Length" property:
+	The length property simply returns us the length of the array.Remember that it is a PROPERTY and NOT A METHOD. Thus,if an array has 5 elements, it shall return 5,and so on.
+	EXAMPLE:
+	document.write(student.length);
+	
+2> The "Concat" method:
+	Th concat method needs 2 arrays to work with. As the name suggests, this method concatenates one array with another, and returns the newly formed array.Thus in order to use the
+	concat method, we need 3 arrays in total-- The two arrays which we need to combine, and the third array which stores the result of the concatenation.
+	EXAMPLE:
+	var fruits=new Array("Orange","Apple","Banana");
+	var vegetables=new Array("Lettuce","Spinach","Kale");
+	
+	var fruitsveggies=fruits.concat(vegetables);
+	
+	Here, the array fruitsveggies shall store the result of the concatenation of the arrays "fruits" and "vegetables".Concatenation simply sticks the beginning of the second array
+	(vegetables) to the end of the first array (fruits). No sorting or any kind is performed.
+	
+3> The "Join" method:
+	This method is used to join or connect all the elements of the array into a single string. It returns the string that contains the joint elements of the array.
+	By default the method does not contain any parameter. As a result the different elements of the array are separated by a comma ',' in the resultant joint string. We can choose the
+	symbol that separates these elements by specifying it inside the parameter.
+	EXAMPLE:
+	var fruits= new Array ("Banana", "Orange","Strawberry","Jackfruit");
+	var fruitstring=fruits.join();
+	
+	This will store the string "Banana,Orange,Strawberry,Jackfruit" in the variable fruitstring.We can observe that the elements in the string are separated by commas.
+	However, if we write the above example as follows, we achieve a different result:
+	
+	var fruitstring=fruits.join("-");
+	This will store the string: "Banana-Orange-Strawberry-Jackfruit" in the variable fruitstring. Thus, the choice of the parameter determines the character separating the elements.
+	
+4>The "Pop" method:
+	The use of this method is very similar to that of the stack. Whenever we create an array and apply the "pop" method to it, we actually delete the last element of the array, thus,
+	essentially "popping" it. Whenever we "pop" the last element of the array, the ARRAY SIZE actually decreases by 1. As a result, if we try to print the element we shall get 
+	"invalid" as the answer.
+	EXAMPLE:
+	var fruits= new Array ("Banana", "Orange","Strawberry","Jackfruit");
+	document.write(fruits[3]);//---WILL PRINT "Jackfruit"
+	fruits.pop();
+	document.write(fruits[3]);// WILL PRINT "Invalid"
+	
+	After popping the last element of the array, tha size of the array decreases by 1. Thus whenever we try to print the last element of the array it gives "invalid" as the answer.
+	
+5>The "Reverse" method:
+	True to its name, the "reverse" method simply reverses the elements of the array in the opposite order that they were before. It obviously takes in no parameter (as why would
+	we need one?). The array size remains the same, just the elements get reversed.
+	EXAMPLE:
+	var fruits= new Array ("Banana", "Orange","Strawberry","Jackfruit");
+	fruits.reverse();
+	var fruitstring=fruits.join();
+	
+	The above code will print the string "Jackfruit,Strawberry,Orange,Banana". Thus we see that the order of the elements has been reversed.
+	
+6>The "Push" method:
+	The "push" method, similar to the "pop" method performs the exact same function as it did to a stack. We can specify the element in the parameteres of the method and the element
+	will get added to the end of the array. Thus, we are essentially "pushing" the element to the end of the array. We can also specify multiple element to be pushed at the end 
+	of the array, just by separating them by commas.
+	EXAMPLE:
+	var fruits= new Array ("Banana", "Orange","Strawberry","Jackfruit");
+	fruits.push("Pineapple");
+	var fruitstring=fruits.join("-");
+	document.write(fruitstring);
+	
+	The above code snippet will print the string "Banana-Orange-Strawberry-Jackfruit-Pineapple". Thus we see that the element "pineapple" has been added to the end of the array.
+	
+7>The "Sort" method:
+	The sort method uses an internal sorting algorithm(usually quicksort) in order to sort the elements of the array in ascending order. If the array is an array of strings, then
+	the strings are sorted in alphabetical order, on the other hand, if the array is an array of numbers, then the array is sorted in ascending order.
+	EXAMPLE:
+	var fruits= new Array ("Banana", "Orange","Strawberry","Jackfruit");
+	fruits.sort();
+	var fruitstring=fruits.join();
+	document.write(fruitstring);
+	
+	The above code snippet will print the string "Banana,Jackfruit,Orange,Strawberry". Thus, the array of strings has been sorted in alphabetical order.
+	
+---THE JAVASCRIPT PROMPTS---
+Similar to alerts, javascript also has certain elements called "prompts". They are basically alerts which prompt the user to enter text or some data in a text box.
+In order to create a prompt, we first create a variable and set it equal to the function prompt().
+This "prompt" function takes in 2 parameters:
+1>The text which prompts the user to type in an input. It is basically the text which is present above the text box which indicates to the user "what to enter".
+2>The text which is present INSIDE the text box by default. It usually indicates the format of the input that the user must enter.EG: If the user has to enter an email id, we can prompt
+	the user that the email id should be in the format of "someone@example.com". The user then deletes this text and enters his own inputs.It is also possible to leave this field
+	blank, but in this case STILL the DOUBLE QUOTES MUST BE ENTERED.
+	
+	
+EXAMPLE:
+var input=prompt("Enter email id","");
+document.write(input);
+
+The above code snippet will show a prompt box to the user, which the user then fills with a email id. We then simply display the entered information out onto the screen.
+
+---SIMPLE TIP FOR PRINTING ARRAYS---
+Whenever we have to print an array, we usually resort to counting the elements of the array and then setting the counter variable of the for loop to that number. However, this technique
+might prove to be disadvantageous if the size of out array is constantly changing. In order to resolve this problem, we usually set our counter variable equal to the "LENGTH" property
+of the array. Remember, that LENGTH is A PROPERTY and NOT A METHOD, so it does not come with parantheses.
+EXAMPLE:
+	var fruits= new Array ("Banana", "Orange","Strawberry","Jackfruit");
+	fruits.sort();
+	for(i=0;i<fruits.length;i++)
+	{
+		document.write(fruits[i]+<br />);
+	}
+
+---ASSOCIATIVE ARRAYS---
+There is another way in which we can create and access the elements of an array. This type of array is called an "associative array". In associative arrays, instead of assigning
+elements to indices, we assign them to strings. As a result we can visualise the associative arrays as a set of KEY-VALUE pairs. Reading the following example will somewhat clear
+the concept:
+EXAMPLE:
+
+var person=new Array();
+
+person["name"]="John"
+person["favcolor"]="Blue"
+person["favfood"]="Pizza"
+
+We can also print these out in a similar manner:
+
+document.write(person["name"]+"<br />"+person["favcolor"]+"<br />"+person["favfood"]+"<br />");
+
+This will print the following manner:
+John
+Blue
+Pizza
+
+---MATH OBJECTS---
+Similar to Array objects Javascript also has another type of built-in objects called "Math" objects. These objects are very useful for performing a wide variety of math functions
+like square, square-root, raising to some power,trigonometric functions, logarithmic  functions,etc. It also has the values of certain standard constants saved in it as properties.
+Let us explore the Math Objects in a little detail:
+1> The "PI" property:
+	The "Math" object has value of the constant "pi" built into itself. Thus, there is no need for us to manually type the value of "pi". Remember the PI is a PROPERTY and NOT A
+	METHOD, so it does not come with parantheses.
+	EXAMPLE:
+	document.write(Math.PI);
+	
+2>The "E" property:
+	The "Math" object has value of the Euler's constant built into itself. Thus, there is no need for us to manually type the value of the Euler's Constant. Remember the E is a
+	PROPERTY and NOT A METHOD, so it does not come with parantheses.
+	EXAMPLE:
+	document.write(Math.E);
+	
+3>The sqrt method:
+	The "Math" object has the method sqrt built into itself. This methd helps us to find the square root of a particular number. The number which we want to find the square root of
+	is passed as a parameter to the method. The method then returns us the resultant square-root of the passed number.
+	EXAMPLE:
+		var num=prompt("Enter a number","");
+		var ans=Math.sqrt(num);
+		alert("The square-root of "+num+" is "+ans+" <br />");
+	
+	The above code snippet will accept the number from the user with a prompt box, and will display the result using an alert box.
+	
+	For more methods refer here:https://www.w3schools.com/js/js_math.asp
+	
+---DATE OBJECTS AND SETINTERVAL---
+Before we learn about date objects, let us learn about an interesting function called "setInterval". This function is used to repeat a particular function after a designated amount
+of time. This function takes 2 parameters: 1--The name of the function which we want to repeat and 2--The time interval (in milliseconds) after which you want the function to repeat.
+The use of the function will become clear by the following example:
+function writedata()
+{
+	document.write("henlo"+"<br /");
+}
+setInterval("writedata()",1000);//1000 milliseconds=1second
+
+The above code snippet will execute the function writedata every 1000 milliseconds ie every second. Thus, the output will have the word "henlo" written every second.
+
+--DATE OBJECTS
+Now we come to the date objects:
+The date object has the ability to return 1>THE CURRENT DATE 2>THE CURRENT TIME(in military notation).
+Thus whenever we create an object of type Date() using the new keyword, it will store the current time and date.
+The date and time can be accessed by using the following methods:
+1> getHours--Returns the hours of the current time.(In military notation)
+2>getMinutes--Returns the minutes of the current time.
+3>getSeconds--Returns the seconds of the current time.
+
+For more details refer here: https://www.w3schools.com/js/js_dates.asp
+By using the above concepts, we can easily create a program which will print a real time clock and change the time every second.Look at the following example and observe:
+function time()
+{
+	var dtevar=new Date();
+	var hrs=dtevar.getHours();
+	var mins=dtevar.getMinutes();
+	var secs=dtevar.getSeconds();
+	document.write(hrs+":"+mins+":"+secs+":"+"<br />");
+	
+}
+setInterval("time()",1000);
+
+---ACCESSING FORMS---
+One of the major use of Javascript is to work with forms. Whenever we create a form in our webpage, Javascript automatically recognises the form and creates a "FORMS" object. All the 
+different elements of the form can be accessed using the "forms" object. Typically whenever our webpage contains multiple forms, javascript automatically stores these forms in a
+"forms array". Thus if out webpage has 2 forms, then they will be stored in forms[0] and forms[1].
+Remember, there is NO NEED TO CREATE A FORMS object, Javascript automatically creates it for you.
+The forms object also has many properties and methods. The forms object can be accessed using the following syntax:
+document.forms[index_of_the_form].method/property_name;
+One of the common property of the forms object is the 'length' property. The length property stores the NUMBER OF ELEMENTS in our form. Thus, if our form has a text input,a password
+input and a submit button, then the length of our form will be 3.
+The following example will make the above concept clear:
+
+<form>
+Username: <input type="text" />
+Password: <input type="password" />
+<input type="submit" value="Submit!" />
+</form>
+
+<script type="text/javascript">
+var len=document.forms[0].length;
+document.write(len);
+</script>
+
+---ACCESSING FORM ELEMENTS---
+Now that we know how to access forms,we shall now see how to access forms elements. The are 2 methods to do this:
+--METHOD 1:
+	Similar to how Javascript automatically creates the forms array, it also automatically creates the ELEMENTS array. Similar to how we accessed the forms using indices, we can
+	also access the different elements of the form using the ELEMENTS array.
+	Thus, if our form looks like:
+	
+	<form>
+	Username: <input type="text" name="Uname" />
+	Password: <input type="password" name="Pass" />
+	<input type="submit" value="Submit!" />
+	</form>
+	
+	Then, the text input for the username will be elements[0], the password input will be elements[1] and the submit button will be elements[2]. We can thus print the different 
+	properties of the elements like the value of the "name" attribute,etc. This can be done as follows:
+	
+	<script type="text/javascript>
+	var x=document.forms[0].elements[0].name;
+	document.write(x);
+	</script>
+	
+	The above code snippet will print "Uname" on the screen.
+	
+--METHOD 2:
+	Instead of getting confused with the forms and elements array, we acn take the absolute advantage of the name attribute of the different form elements. WE can also assign a
+	"name" attribute to the forms tag, thus making our form unique.Consider the following example for concept clarification:
+	
+	<form name="MyForm">
+	Username: <input type="text" name="Uname" />
+	Password: <input type="password" name="Pass" />
+	<input type="submit" value="Submit!" />
+	</form>
+	
+	<script type="text/javascript>
+	var x=document.MyForm.Uname.name;
+	document.write(x);
+	</script>
+	
+	The above code snippet will print "Uname" on the screen.
+	
+---SIMPLE FORM VALIDATION---
+This is probably the last part of the beginner Javascript notes that I'm doing. Now that we know how to access form elements, we now have to validate the contents of these elements.
+Consider the simple form having a single checkbox:
+<form name="MyForm">
+<input type="checkbox" name="boxie" />
+<input type="button" value="click here" onClick="validation()" />
+</form>
+ Here we shall check whether the checkbox has been checked or not. For this we shall use the checked PROPERTY. This property contains a boolean value and is therefore perfect for
+ serving as a conditional statement in the if() statement.
+ Consider:
+ 
+ <script type="text/javascript">
+ function validation()
+ {
+	if(document.MyForm.boxie.checked)
+		{
+			alert("The checkbox is checked");
+		}
+	else
+		{
+			alert("Check the checkbocx goddamnit!");
+		}
+}
+</script>
+ 
+	
+
+	
+
+	
+	
